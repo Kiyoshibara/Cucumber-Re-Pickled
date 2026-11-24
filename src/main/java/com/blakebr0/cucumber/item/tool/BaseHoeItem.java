@@ -3,12 +3,12 @@ package com.blakebr0.cucumber.item.tool;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
 
 import java.util.function.Function;
 
-public class BaseHoeItem extends HoeItem {
+public class BaseHoeItem extends Item {
     private final float attackDamage;
     private final float attackSpeed;
 
@@ -21,7 +21,7 @@ public class BaseHoeItem extends HoeItem {
     }
 
     public BaseHoeItem(Identifier id, ToolMaterial material, int attackDamage, float attackSpeed, Function<Properties, Properties> properties) {
-        super(material, attackDamage, attackSpeed, properties.apply(new Properties().setId(ResourceKey.create(Registries.ITEM, id))));
+        super(properties.apply(new Properties().setId(ResourceKey.create(Registries.ITEM, id))).hoe(material, attackDamage, attackSpeed));
         this.attackDamage = attackDamage + material.attackDamageBonus();
         this.attackSpeed = attackSpeed;
     }

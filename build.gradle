@@ -3,10 +3,10 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.141'
+    id 'net.neoforged.moddev' version '2.0.148'
 }
 
-version = '26.1.2-9.0.8'
+version = '26.3-9.0.8u1'
 group = 'com.blakebr0.cucumber'
 
 base {
@@ -107,3 +107,17 @@ idea {
         downloadJavadoc = true
     }
 }
+
+tasks.named('jar', Jar) {
+    from('LICENSE') {
+        into('META-INF')
+    }
+}
+
+// BEGIN PORT_26_3_RELEASE_0_1_0
+version = '0.1.0'
+tasks.withType(org.gradle.api.tasks.bundling.Jar).configureEach {
+    archiveBaseName.set('Cucumber-Re-Pickled-26.3')
+    archiveVersion.set('0.1.0')
+}
+// END PORT_26_3_RELEASE_0_1_0

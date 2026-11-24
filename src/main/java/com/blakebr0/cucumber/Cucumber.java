@@ -51,7 +51,7 @@ public final class Cucumber {
 		FeatureFlagInitializer.init();
 
 		mod.registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
-		mod.registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
+		mod.registerConfig(ModConfig.Type.LOCAL, ModConfigs.COMMON);
 	}
 
 	@SubscribeEvent

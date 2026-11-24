@@ -19,7 +19,7 @@ public class BaseGlassBlock extends TransparentBlock {
                 .isValidSpawn(BaseGlassBlock::never)
                 .isRedstoneConductor(BaseGlassBlock::never)
                 .isSuffocating(BaseGlassBlock::never)
-                .isViewBlocking(BaseGlassBlock::never)
+                .isViewBlocking((state, level, pos, nearPlane) -> false)
         );
     }
 
@@ -36,7 +36,7 @@ public class BaseGlassBlock extends TransparentBlock {
                 .isValidSpawn(BaseGlassBlock::never)
                 .isRedstoneConductor(BaseGlassBlock::never)
                 .isSuffocating(BaseGlassBlock::never)
-                .isViewBlocking(BaseGlassBlock::never);
+                .isViewBlocking((state, level, pos, nearPlane) -> false);
 
         if (tool) {
             properties.requiresCorrectToolForDrops();

@@ -1,31 +1,33 @@
 license="MIT"
 
 [[mods]]
-    issueTrackerURL="https://github.com/BlakeBr0/Cucumber/issues"
+
     modId="cucumber"
     version="${mod_version}"
     # logoFile="examplemod.png"
-    displayURL="https://blakesmods.com/cucumber"
-    # credits="Thanks for this example mod goes to Java"
-    authors="BlakeBr0"
-    displayName="Cucumber Library"
-    updateJSONURL="https://api.blakesmods.com/v2/mods/cucumber/26.1/updates"
-    description='''
-    A library of shared code that all of my mods depend on.
-    '''
+    displayURL="https://www.curseforge.com/minecraft/mc-mods/cucumber-library-re-pickled"
+    credits="Original mod and code by BlakeBr0 and contributors."
+    authors="BlakeBr0 (Original), Kiyoshibara (Unofficial Port)"
+    displayName="Cucumber: Re-Pickled"
 
+
+    logoFile="port_logo.png"
+    description='''
+    A shared library required by Mystical Agriculture and related mods. Unofficial NeoForge 26.3 port.
+    Support this unofficial port on Patreon: https://www.patreon.com/c/Kiyoshibara
+    '''
     [[mixins]]
         config="cucumber.mixins.json"
 
     [[dependencies.cucumber]]
         modId="neoforge"
         mandatory=true
-        versionRange="[26.1.2.41-beta,)"
+        versionRange="[26.3.0.115,)"
         ordering="NONE"
         side="BOTH"
     [[dependencies.cucumber]]
         modId="minecraft"
         mandatory=true
-        versionRange="[26.1.2,26.2)"
+        versionRange="[26.3,26.4)"
         ordering="NONE"
         side="BOTH"

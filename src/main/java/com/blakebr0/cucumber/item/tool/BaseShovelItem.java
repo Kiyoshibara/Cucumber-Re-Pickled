@@ -3,12 +3,12 @@ package com.blakebr0.cucumber.item.tool;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
 
 import java.util.function.Function;
 
-public class BaseShovelItem extends ShovelItem {
+public class BaseShovelItem extends Item {
     private final float attackDamage;
     private final float attackSpeed;
 
@@ -21,7 +21,7 @@ public class BaseShovelItem extends ShovelItem {
     }
 
     public BaseShovelItem(Identifier id, ToolMaterial material, float attackDamage, float attackSpeed, Function<Properties, Properties> properties) {
-        super(material, attackDamage, attackSpeed, properties.apply(new Properties().setId(ResourceKey.create(Registries.ITEM, id))));
+        super(properties.apply(new Properties().setId(ResourceKey.create(Registries.ITEM, id))).shovel(material, attackDamage, attackSpeed));
         this.attackDamage = attackDamage + material.attackDamageBonus();
         this.attackSpeed = attackSpeed;
     }

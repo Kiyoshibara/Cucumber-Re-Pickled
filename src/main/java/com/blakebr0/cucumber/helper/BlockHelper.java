@@ -3,6 +3,7 @@ package com.blakebr0.cucumber.helper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -75,7 +76,7 @@ public final class BlockHelper {
 
         var block = state.getBlock();
         if (destroyed && state.canHarvestBlock(level, pos, player)) {
-            block.playerDestroy(level, player, pos, state, level.getBlockEntity(pos), stack);
+            block.playerDestroy((ServerLevel) level, player, pos, state, level.getBlockEntity(pos), stack);
             stack.mineBlock(level, state, pos, player);
         }
 

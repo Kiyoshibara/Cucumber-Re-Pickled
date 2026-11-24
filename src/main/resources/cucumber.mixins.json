@@ -2,7 +2,6 @@
   "required": true,
   "package": "com.blakebr0.cucumber.mixin",
   "compatibilityLevel": "JAVA_25",
-  "refmap": "cucumber.refmap.json",
   "mixins": [
     "ItemStackMixin",
     "RecipeManagerMixin",
