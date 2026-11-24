@@ -46,8 +46,8 @@ Always download the appropriate version for your Minecraft version and mod loade
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/Kiyoshibara/Cucumber.git
-cd Cucumber
+git clone https://github.com/Kiyoshibara/Cucumber-Re-Pickled.git
+cd Cucumber-Re-Pickled
 git checkout 26.3
 ```
 

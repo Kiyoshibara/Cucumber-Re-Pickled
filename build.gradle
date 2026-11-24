@@ -1,3 +1,4 @@
+
 plugins {
     id 'java-library'
     id 'eclipse'
@@ -6,11 +7,11 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.148'
 }
 
-version = '26.3-9.0.8u1'
+version = mod_version
 group = 'com.blakebr0.cucumber'
 
 base {
-    archivesName = 'Cucumber'
+    archivesName = "Cucumber-Re-Pickled-${minecraft_version}"
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
@@ -50,7 +51,9 @@ configurations {
 }
 
 repositories {
-    maven { url 'https://maven.blamejared.com/' }
+    maven {
+        url 'https://maven.blamejared.com/'
+    }
 }
 
 dependencies {
@@ -65,8 +68,9 @@ java.withSourcesJar()
 
 tasks.withType(ProcessResources).configureEach {
     var replaceProperties = [
-            mod_version            : version.split('-').last(),
+        mod_version: project.version.toString()
     ]
+
     inputs.properties replaceProperties
 
     filesMatching(['META-INF/neoforge.mods.toml']) {
@@ -78,21 +82,6 @@ publishing {
     publications {
         maven(MavenPublication) {
             from components.java
-        }
-    }
-
-    repositories {
-        maven {
-            url = 'https://maven.blakesmods.com'
-
-            credentials {
-                username = System.getenv('BLAKESMODS_MAVEN_USERNAME')
-                password = System.getenv('BLAKESMODS_MAVEN_PASSWORD')
-            }
-
-            authentication {
-                basic(BasicAuthentication)
-            }
         }
     }
 }
@@ -113,11 +102,3 @@ tasks.named('jar', Jar) {
         into('META-INF')
     }
 }
-
-// BEGIN PORT_26_3_RELEASE_0_1_0
-version = '0.1.0'
-tasks.withType(org.gradle.api.tasks.bundling.Jar).configureEach {
-    archiveBaseName.set('Cucumber-Re-Pickled-26.3')
-    archiveVersion.set('0.1.0')
-}
-// END PORT_26_3_RELEASE_0_1_0
