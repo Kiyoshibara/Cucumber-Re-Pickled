@@ -102,3 +102,9 @@ tasks.named('jar', Jar) {
         into('META-INF')
     }
 }
+
+tasks.named('sourcesJar', Jar) {
+    from('LICENSE') {
+        into('META-INF')
+    }
+}
